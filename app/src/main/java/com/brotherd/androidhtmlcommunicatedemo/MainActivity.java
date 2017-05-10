@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.brotherd.androidhtmlcommunicatedemo.activity.BaseKnowLedgeActivity;
+import com.brotherd.androidhtmlcommunicatedemo.activity.TbsWebViewActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 BaseKnowLedgeActivity.launch(this);
                 break;
             case R.id.btn_more:
+                TbsWebViewActivity.launch(this);
                 break;
         }
     }
