@@ -9,6 +9,22 @@
     <com.brotherd.androidhtmlcommunicatedemo.widget.ProgressWebView
         android:id="@+id/webview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="48dp"/>
+
+    <Button
+        android:id="@+id/btn_invoke_js"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:text="调用js方法"/>
+
+    <Button
+        android:id="@+id/btn_invoke_js_with_params"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/btn_invoke_js"
+        android:text="调用有参js"/>
 
 </RelativeLayout>

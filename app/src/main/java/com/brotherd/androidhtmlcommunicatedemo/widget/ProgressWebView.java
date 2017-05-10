@@ -33,6 +33,7 @@ public class ProgressWebView extends LinearLayout {
     private WebView webView;
     private int height;
     private ViewGroup.LayoutParams params;
+    private boolean encountError;
 
     public ProgressWebView(Context context) {
         this(context, null);
@@ -85,9 +86,18 @@ public class ProgressWebView extends LinearLayout {
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
+        //不使用缓存直接从网络加载
+        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         //下面两句话允许网页弹框
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
         webView.setWebChromeClient(new WebChromeClient() {
+
+            @Override
+            public void onReceivedTitle(WebView view, String title) {
+                super.onReceivedTitle(view, title);
+                Log.e(TAG, "onReceivedTitle: " + title);
+            }
+
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
                 Log.e(TAG, "onProgressChanged: newProgress=" + newProgress);
@@ -99,7 +109,7 @@ public class ProgressWebView extends LinearLayout {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
-                    if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack() && !encountError) {
                         webView.goBack();
                         return true;
                     }
@@ -116,4 +126,5 @@ public class ProgressWebView extends LinearLayout {
     public void loadUrl(String url) {
         webView.loadUrl(url);
     }
+
 }
