@@ -11,6 +11,7 @@
     <application
         android:name=".App"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -26,6 +27,21 @@
         <activity android:name=".activity.BaseKnowLedgeActivity">
         </activity>
         <activity android:name=".activity.TbsWebViewActivity">
+        </activity>
+        <activity
+            android:name=".activity.VideoActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+        </activity>
+        <activity
+            android:name="com.tencent.smtt.sdk.VideoActivity"
+            android:alwaysRetainTaskState="true"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.tencent.smtt.tbs.video.PLAY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
     </application>
 
