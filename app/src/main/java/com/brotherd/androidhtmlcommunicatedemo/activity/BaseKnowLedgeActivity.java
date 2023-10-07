@@ -3,8 +3,8 @@ package com.brotherd.androidhtmlcommunicatedemo.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
 import com.brotherd.androidhtmlcommunicatedemo.R;
 import com.brotherd.androidhtmlcommunicatedemo.util.WebAppInterface;
 import com.brotherd.androidhtmlcommunicatedemo.widget.ProgressWebView;
@@ -22,7 +22,7 @@ public class BaseKnowLedgeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_know_ledge);
-        webview = (ProgressWebView) findViewById(R.id.webview);
+        webview = findViewById(R.id.webview);
         webview.loadUrl("file:///android_asset/Test.html");
         webview.addJavascriptInterface(new WebAppInterface(this), "Android");
     }

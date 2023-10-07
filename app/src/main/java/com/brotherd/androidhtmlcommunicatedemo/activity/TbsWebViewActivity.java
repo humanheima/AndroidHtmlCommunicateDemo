@@ -3,9 +3,9 @@ package com.brotherd.androidhtmlcommunicatedemo.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
 import com.brotherd.androidhtmlcommunicatedemo.R;
 import com.brotherd.androidhtmlcommunicatedemo.util.WebAppInterface;
 import com.tencent.smtt.sdk.WebChromeClient;
@@ -17,8 +17,8 @@ public class TbsWebViewActivity extends AppCompatActivity {
 
     private static final String TAG = "TbsWebViewActivity";
     private WebView webView;
-    Button btnInvokeJs;
-    Button btnInvokeJsWithParams;
+    private Button btnInvokeJs;
+    private Button btnInvokeJsWithParams;
     //防止加载网页时调起系统浏览器
     private WebViewClient client = new WebViewClient() {
         @Override
@@ -37,7 +37,7 @@ public class TbsWebViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tbs_web_view);
-        webView = (WebView) findViewById(R.id.web_view);
+        webView = findViewById(R.id.web_view);
         initWebView();
     }
 
