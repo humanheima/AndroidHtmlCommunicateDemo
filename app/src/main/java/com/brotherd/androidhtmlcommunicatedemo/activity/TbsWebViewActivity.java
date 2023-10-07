@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
 import com.brotherd.androidhtmlcommunicatedemo.R;
 import com.brotherd.androidhtmlcommunicatedemo.util.WebAppInterface;
 import com.tencent.smtt.sdk.WebChromeClient;
@@ -14,18 +13,11 @@ import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 public class TbsWebViewActivity extends AppCompatActivity {
 
     private static final String TAG = "TbsWebViewActivity";
-    @BindView(R.id.web_view)
-    WebView webView;
-    @BindView(R.id.btn_invoke_js)
+    private WebView webView;
     Button btnInvokeJs;
-    @BindView(R.id.btn_invoke_js_with_params)
     Button btnInvokeJsWithParams;
     //防止加载网页时调起系统浏览器
     private WebViewClient client = new WebViewClient() {
@@ -45,7 +37,7 @@ public class TbsWebViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tbs_web_view);
-        ButterKnife.bind(this);
+        webView = (WebView) findViewById(R.id.web_view);
         initWebView();
     }
 
@@ -75,7 +67,6 @@ public class TbsWebViewActivity extends AppCompatActivity {
         webView.loadUrl("file:///android_asset/Test.html");
     }
 
-    @OnClick({R.id.btn_invoke_js, R.id.btn_invoke_js_with_params})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_invoke_js:

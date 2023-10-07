@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_base"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="基础知识"/>
+                android:id="@+id/btn_base"
+                android:onClick="onViewClicked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="基础知识" />
 
         <Button
-            android:id="@+id/btn_more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="更多"/>
+                android:id="@+id/btn_more"
+                android:onClick="onViewClicked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="更多" />
 
         <Button
-            android:id="@+id/btn_video"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="webView播放视屏"
-            android:textAllCaps="false"/>
+                android:onClick="onViewClicked"
+                android:id="@+id/btn_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="webView播放视屏"
+                android:textAllCaps="false" />
 
     </LinearLayout>
 
