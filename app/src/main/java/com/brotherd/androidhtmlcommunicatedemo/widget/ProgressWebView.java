@@ -12,13 +12,14 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-
 import com.brotherd.androidhtmlcommunicatedemo.R;
 import com.brotherd.androidhtmlcommunicatedemo.util.ScreenUtil;
 import com.brotherd.androidhtmlcommunicatedemo.util.WebAppInterface;
@@ -49,6 +50,11 @@ public class ProgressWebView extends LinearLayout {
         progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
         webView = (WebView) view.findViewById(R.id.web_view);
         webView.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                return super.shouldOverrideUrlLoading(view, request);
+            }
 
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -126,5 +132,10 @@ public class ProgressWebView extends LinearLayout {
     public void loadUrl(String url) {
         webView.loadUrl(url);
     }
+
+    public void evaluateJavascript(String script, ValueCallback<String> callback) {
+        webView.evaluateJavascript(script, callback);
+    }
+
 
 }
