@@ -11,9 +11,17 @@
         <Button
                 android:id="@+id/btn_base"
                 android:onClick="onViewClicked"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="基础知识" />
+
+        <Button
+                android:id="@+id/btn_simple_framework"
+                android:onClick="onViewClicked"
+                android:layout_width="match_parent"
+                android:textAllCaps="false"
+                android:layout_height="wrap_content"
+                android:text="一个简单的JsBridge框架" />
 
         <Button
                 android:id="@+id/btn_more"

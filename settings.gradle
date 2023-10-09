@@ -1,1 +1,2 @@
 include ':app', ':X5WebDemo'
+include ':jslibrary'
